@@ -7,7 +7,7 @@ export class Pokemon {
 
 
     get Template() {
-        return `<b> ${this.name}</b>
+        return `<b onclick="app"> ${this.name}</b>
         
         
         
