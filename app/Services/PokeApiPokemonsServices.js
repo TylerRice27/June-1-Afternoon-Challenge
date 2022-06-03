@@ -10,16 +10,21 @@ const pokeApi = axios.create({
 
 class PokeApiPokemonService {
 
+
+    async setActive(name) {
+
+        const res = await pokeApi.get(name)
+        console.log('get pokemon info', res.data);
+        ProxyState.activePokemon = new Pokemon(res.data)
+        console.log('new active', ProxyState.activePokemon);
+    }
+
     async getApiPokemon() {
         const res = await pokeApi.get()
         console.log('get pokemon from api', res.data);
         ProxyState.pokemons = res.data.results.map(p => new Pokemon(p))
     }
 
-    async getPokemonDetails(index) {
-        const res = await pokeApi.get(index)
-        console.log('get poxemon info', res.data);
-    }
 
 }
 

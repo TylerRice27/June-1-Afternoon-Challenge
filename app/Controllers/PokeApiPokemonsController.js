@@ -11,17 +11,18 @@ function _drawPokemon() {
 
 }
 
+function _drawActive() {
+    document.getElementById('activePokemon').innerHTML = ProxyState.activePokemon.activeTemplate
+
+}
 
 export class pokeApiPokemonsController {
     constructor() {
         // console.log('load pokemon', ProxyState.pokemons);
         ProxyState.on('pokemons', _drawPokemon)
+        ProxyState.on('activePokemon', _drawActive)
         this.getApiPokemon()
     }
-
-
-
-
 
     async getApiPokemon() {
         try {
@@ -30,7 +31,19 @@ export class pokeApiPokemonsController {
             console.error(error)
             Pop.toast(error.message, 'error')
         }
+
     }
 
+    async setActive(name) {
+        try {
+            await pokeApiPokemonService.setActive(name)
 
+        } catch (error) {
+            console.error(error)
+            Pop.toast(error.message, 'error')
+
+        }
+    }
 }
+
+
