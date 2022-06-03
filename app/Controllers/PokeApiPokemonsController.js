@@ -36,6 +36,7 @@ export class pokeApiPokemonsController {
 
     async setActive(name) {
         try {
+
             await pokeApiPokemonService.setActive(name)
 
         } catch (error) {

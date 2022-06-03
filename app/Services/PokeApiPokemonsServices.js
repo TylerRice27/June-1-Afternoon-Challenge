@@ -20,6 +20,7 @@ class PokeApiPokemonService {
     }
 
     async getApiPokemon() {
+
         const res = await pokeApi.get()
         console.log('get pokemon from api', res.data);
         ProxyState.pokemons = res.data.results.map(p => new Pokemon(p))

@@ -4,14 +4,14 @@ export class Pokemon {
         this.id = data.id
         this.name = data.name
         this.type = data.type
-        this.img = data.sprites
+        this.img = data.sprites.other.dream_world.front_default
     }
 
 
     get Template() {
         return `
         
-        <button class="btn btn-danger m-3 text-black rounded-pill" "selectable" onclick="app.pokeApiPokemonsController.setActive()"> ${this.name}</button>
+        <button class="btn btn-danger m-3 text-black rounded-pill" "selectable" onclick="app.pokeApiPokemonsController.setActive('${this.name}')"> ${this.name}</button>
         
         
         
