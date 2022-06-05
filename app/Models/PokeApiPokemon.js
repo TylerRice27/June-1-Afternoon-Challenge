@@ -4,7 +4,7 @@ export class Pokemon {
         this.id = data.id
         this.name = data.name
         this.type = data.type
-        this.img = data.sprites.other.dream_world.front_default
+        this.img = data.sprites
     }
 
 
